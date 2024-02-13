@@ -51,9 +51,9 @@ const HomePage = () => {
               </button>
             </NavLink>
           </div>
-          <div className="mt-8">
-            No matter which field of work you want to go into, it is of great
-            importance to learn at least one programming language.
+          <div className="mt-12 font-semibold">
+            " No matter which field of work you want to go into, it is of great
+            importance to learn at least one programming language "
           </div>
         </div>
         <div className="right w-2/4 border-none border-lime-500 flex items-center justify-center">
@@ -71,7 +71,6 @@ const HomePage = () => {
             Trusted by the world’s most innovative teams
           </h2>
           <div className="mx-auto mt-10 grid max-w-lg grid-cols-4 items-center gap-x-8 gap-y-10 sm:max-w-xl sm:grid-cols-6 sm:gap-x-10 lg:mx-0 lg:max-w-none lg:grid-cols-5">
-            {/* Replace the image URLs with your actual image URLs */}
             <img
               className="col-span-2 max-h-12 w-full object-contain lg:col-span-1"
               src="https://tailwindui.com/img/logos/158x48/transistor-logo-white.svg"

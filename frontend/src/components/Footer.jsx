@@ -62,7 +62,7 @@ const Footer = () => {
             <a href="https://flowbite.com/" className="hover:underline">
               C☺deCrasher™
             </a>
-            . All Rights Reserved.
+            . All Rights Reserved • Developed- Abhishek Roy
           </span>
         </div>
       </footer>

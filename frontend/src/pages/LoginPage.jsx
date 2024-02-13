@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import { useAuth } from "../auth/auth";
 
 function LoginPage() {
   const [allUser, setallUser] = useState({
@@ -46,6 +47,9 @@ function LoginPage() {
 
   const navigate = useNavigate();
 
+  // USE CONTEXT API
+  const { storetokenInLs } = useAuth();
+
   const handelSubmit = async (e) => {
     e.preventDefault();
     console.log(allUser);
@@ -61,6 +65,11 @@ function LoginPage() {
       console.log(response);
 
       if (response.statusText == "OK") {
+        const responseData = await response.json();
+
+        // localStorage.setItem("token", responseData.token);
+        storetokenInLs(responseData.token);
+
         setallUser({
           email: "",
           password: "",
@@ -85,7 +94,7 @@ function LoginPage() {
             <div className="sm:mx-auto sm:w-full sm:max-w-sm">
               <img
                 className="mx-auto h-40 w-auto"
-                src="https://www.pngall.com/wp-content/uploads/5/User-Profile-PNG-Image.png"
+                src="https://www.pngall.com/wp-content/uploads/5/Profile-Male-PNG-Clipart.png"
                 alt="Your Company"
               />
               <h2 className="mt-10 text-center text-3xl font-bold leading-9 tracking-tight text-white">

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
+import { useAuth } from "../auth/auth";
 
 const RegistrationPage = () => {
   const [allUser, setallUser] = useState({
@@ -10,6 +11,9 @@ const RegistrationPage = () => {
   });
 
   const navigate = useNavigate();
+
+  // USE CONTEXT API
+  const { storetokenInLs } = useAuth();
 
   const handelInput = (e) => {
     // console.log(e.target.value);
@@ -36,6 +40,13 @@ const RegistrationPage = () => {
       });
 
       if (response.statusText == "OK") {
+        // STORE THE TOKEN IN LOCAL STORAGE
+        const responseData = await response.json();
+        console.log("Data from response", responseData);
+
+        storetokenInLs(responseData.token);
+        // localStorage.setItem("token", responseData.token);
+
         setallUser({
           username: "",
           email: "",
