@@ -7,6 +7,7 @@ import RegistrationPage from "./pages/RegistrationPage";
 import BlogPage from "./pages/BlogPage";
 import ErrorPage from "./pages/ErrorPage";
 import ContactPage from "./pages/ContactPage";
+import PackegePage from "./pages/PackegePage";
 
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
@@ -23,6 +24,7 @@ const App = () => {
           <Route path="/register" element={<RegistrationPage />} />
           <Route path="/blog" element={<BlogPage />} />
           <Route path="/contact" element={<ContactPage />} />
+          <Route path="/package" element={<PackegePage />} />
           <Route path="*" element={<ErrorPage />} />
         </Routes>
         <Footer />

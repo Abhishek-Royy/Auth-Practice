@@ -1,11 +1,36 @@
 import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 function LoginPage() {
   const [allUser, setallUser] = useState({
     email: "",
     password: "",
   });
+
+  const success = () =>
+    toast.success("🦄 Login Successfull", {
+      position: "top-right",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+    });
+
+  const error = () =>
+    toast.error("Invalid details.!", {
+      position: "top-right",
+      autoClose: 1000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+    });
 
   const handelAllInput = (e) => {
     // console.log(e.target.value);
@@ -19,9 +44,37 @@ function LoginPage() {
     });
   };
 
-  const handelSubmit = (e) => {
+  const navigate = useNavigate();
+
+  const handelSubmit = async (e) => {
     e.preventDefault();
     console.log(allUser);
+
+    try {
+      const response = await fetch(`http://localhost:5000/api/v1/login`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(allUser),
+      });
+      console.log(response);
+
+      if (response.statusText == "OK") {
+        setallUser({
+          email: "",
+          password: "",
+        });
+        success();
+        setTimeout(() => {
+          navigate("/");
+        }, 3000);
+      } else {
+        error();
+      }
+    } catch (error) {
+      console.log("error in login", error);
+    }
   };
 
   return (

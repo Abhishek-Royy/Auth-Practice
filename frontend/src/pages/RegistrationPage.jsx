@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 
-
 const RegistrationPage = () => {
   const [allUser, setallUser] = useState({
     username: "",
@@ -43,7 +42,9 @@ const RegistrationPage = () => {
           phone: "",
           password: "",
         });
-        navigate("/login");
+        setTimeout(() => {
+          navigate("/login");
+        }, 2000);
       }
       console.log(response);
     } catch (error) {
@@ -175,7 +176,7 @@ const RegistrationPage = () => {
               </form>
 
               <p className="mt-5 text-center text-sm text-gray-500">
-                Not a member?
+                Are you a member?
                 <NavLink
                   to="/login"
                   className="font-semibold leading-6 text-amber-300 hover:text-amber-500"
