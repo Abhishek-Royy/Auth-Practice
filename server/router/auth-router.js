@@ -12,4 +12,6 @@ router
 
 router.route("/login").post(authControllerAllPage.loginPage);
 
+router.route("/user").get(authControllerAllPage.userPage);
+
 module.exports = router;

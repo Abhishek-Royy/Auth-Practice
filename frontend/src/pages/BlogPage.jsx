@@ -42,7 +42,7 @@ const BlogPage = () => {
               </div>
               <div className="relative mt-8 flex items-center gap-x-4">
                 <img
-                  src="https://yt3.googleusercontent.com/sq5rm1ghog5nfzTN0zeUaeXxc2PtB3KvKG2AJpyGN_O0ZPxwUoOS0Y5y1AkbMT1_LTHXMJ94MA=s900-c-k-c0x00ffffff-no-rj"
+                  src="https://media.licdn.com/dms/image/D4D03AQHGNAxeyJhZbQ/profile-displayphoto-shrink_200_200/0/1685972237021?e=2147483647&v=beta&t=2xEX518MiNimUc39nr6Hv4r31rS9YDACwxKCkKeequ8"
                   alt=""
                   className="h-10 w-10 rounded-full bg-gray-50"
                 />
@@ -130,7 +130,7 @@ const BlogPage = () => {
               </div>
               <div className="relative mt-8 flex items-center gap-x-4">
                 <img
-                  src="https://yt3.googleusercontent.com/A_3mLbY1nzH3MPjzEftkO8LK02HazD4PWy9XbwLDQ4hDkbBCla4EkcVNM0kZDTeMWqNCD4jVbA=s900-c-k-c0x00ffffff-no-rj"
+                  src="https://media.licdn.com/dms/image/C5103AQGVpPvlt0HvkA/profile-displayphoto-shrink_800_800/0/1562407623657?e=2147483647&v=beta&t=jONY0il2EZ6635BN68jupAe--wuLz0ULmmODyGH89so"
                   alt=""
                   className="h-10 w-10 rounded-full bg-gray-50"
                 />

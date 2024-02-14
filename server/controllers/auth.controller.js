@@ -71,4 +71,13 @@ const loginPage = async (req, res) => {
   }
 };
 
-module.exports = { homePage, registerPage, loginPage };
+// USER PAGE LOGIC
+const userPage = async (req, res) => {
+  try {
+    res.status(200).json({ msg: "Hi User" });
+  } catch (error) {
+    console.log(`Error in userPage ${error}`);
+  }
+};
+
+module.exports = { homePage, registerPage, loginPage, userPage };
