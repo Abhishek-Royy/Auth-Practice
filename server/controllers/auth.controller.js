@@ -72,12 +72,30 @@ const loginPage = async (req, res) => {
 };
 
 // USER PAGE LOGIC
-const userPage = async (req, res) => {
+// const userPage = async (req, res) => {
+//   try {
+//     const userData = req.userPage;
+//     console.log(userData);
+//     res.status(200).json({ msg: "Hi User" });
+//   } catch (error) {
+//     console.log(`Error in userPage ${error}`);
+//   }
+// };
+
+const user = async (req, res) => {
   try {
-    res.status(200).json({ msg: "Hi User" });
+    const userData = req.user; // Corrected from req.userPage to req.user
+
+    if (!userData) {
+      return res
+        .status(401)
+        .json({ msg: "User data not available, Unauthorized" });
+    }
+    res.status(200).json({ msg: userData });
   } catch (error) {
-    console.log(`Error in userPage ${error}`);
+    console.error(`Error in userPage: ${error}`);
+    res.status(500).json({ msg: "Internal Server Error" });
   }
 };
 
-module.exports = { homePage, registerPage, loginPage, userPage };
+module.exports = { homePage, registerPage, loginPage, user };

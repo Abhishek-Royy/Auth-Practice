@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { useAuth } from "../auth/auth";
+import { toast } from "react-toastify";
 
 const RegistrationPage = () => {
   const [allUser, setallUser] = useState({
@@ -9,6 +10,30 @@ const RegistrationPage = () => {
     phone: "",
     password: "",
   });
+
+  const success = () =>
+    toast.success("☺ Registration Successfull...", {
+      position: "top-right",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+    });
+
+  const error = () =>
+    toast.error("Invalid details.!", {
+      position: "top-right",
+      autoClose: 1000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+    });
 
   const navigate = useNavigate();
 
@@ -53,13 +78,15 @@ const RegistrationPage = () => {
           phone: "",
           password: "",
         });
+        success();
         setTimeout(() => {
-          navigate("/login");
+          navigate("/");
         }, 2000);
       }
       console.log(response);
-    } catch (error) {
-      console.log("error occur", error);
+    } catch (err) {
+      console.log("error occur", err);
+      error();
     }
   };
 

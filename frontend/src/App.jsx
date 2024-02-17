@@ -13,6 +13,10 @@ import LogoutPage from "./pages/LogoutPage";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 
+import AdminLayout from "./components/layouts/AdminLayout";
+import AdminUsers from "./pages/AdminUsers";
+import AdminService from "./pages/AdminService";
+
 const App = () => {
   return (
     <>
@@ -28,6 +32,12 @@ const App = () => {
           <Route path="/package" element={<PackegePage />} />
           <Route path="/logout" element={<LogoutPage />} />
           <Route path="*" element={<ErrorPage />} />
+
+          // NESTED ROUTE
+          <Route path="/admin" element={<AdminLayout />}>
+            <Route path="users" element={<AdminUsers />} />
+            <Route path="services" element={<AdminService/>} />
+          </Route>
         </Routes>
         <Footer />
       </BrowserRouter>
