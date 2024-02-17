@@ -1,44 +1,3 @@
-// import React, { useEffect, useState } from "react";
-// import { useAuth } from "../auth/auth";
-
-// const AdminUsers = () => {
-//   const [users, setUsers] = useState([]);
-//   const { authorizationToken } = useAuth();
-
-//   const getAllUserData = async () => {
-//     try {
-//       const response = await fetch(`http://localhost:5000/api/admin/users`, {
-//         method: "GET",
-//         headers: {
-//           Authorization: authorizationToken,
-//         },
-//       });
-
-//       if (!response.ok) {
-//         throw new Error(`HTTP error! Status: ${response.status}`);
-//       }
-
-//       const data = await response.json();
-//       console.log("Users data:", data);
-//       setUsers(data);
-//     } catch (error) {
-//       console.error("Error in fetching Admin user data", error);
-//     }
-//   };
-
-//   useEffect(() => {
-//     getAllUserData();
-//   }, []);
-
-//   return (
-//     <>
-
-//     </>
-//   );
-// };
-
-// export default AdminUsers;
-
 import React, { useEffect, useState } from "react";
 import { useAuth } from "../auth/auth";
 
@@ -66,6 +25,27 @@ const AdminUsers = () => {
       console.error("Error in fetching Admin user data", error);
     }
   };
+
+  /*  // PROBLEM IN DELETE DATA....
+  const deleteUserData = async (id) => {
+    // console.log(id);
+    try {
+      const response = await fetch(
+        `http://localhost:5000/api/admin/users/delete/:${id}`,
+        {
+          method: "DELETE",
+          headers: {
+            Authorization: authorizationToken,
+          },
+        }
+      );
+      const data = await response.json();
+      console.log(data);
+    } catch (error) {
+      console.log("Error occur to delete data", error);
+    }
+  };
+*/
 
   useEffect(() => {
     getAllUserData();
@@ -104,7 +84,10 @@ const AdminUsers = () => {
                   {users.map((currUser, index) => {
                     return (
                       <tr className="border-b dark:border-green-300 text-gray-300 font-medium">
-                        <td className="whitespace-nowrap  px-6 py-4">
+                        <td
+                          className="whitespace-nowrap  px-6 py-4"
+                          key={index}
+                        >
                           {currUser.username}
                         </td>
                         <td className="whitespace-nowrap  px-6 py-4">
@@ -113,8 +96,19 @@ const AdminUsers = () => {
                         <td className="whitespace-nowrap  px-6 py-4">
                           {currUser.phone}
                         </td>
-                        <td className="whitespace-nowrap  px-6 py-4">edit</td>
-                        <td className="whitespace-nowrap  px-6 py-4">delete</td>
+                        <td className="whitespace-nowrap  px-6 py-4">
+                          <button className="bg-green-500 py-2 w-20 rounded text-black hover:bg-green-600">
+                            Edit
+                          </button>
+                        </td>
+                        <td className="whitespace-nowrap  px-6 py-4">
+                          <button
+                            className="bg-red-600 py-2 w-20 rounded hover:bg-red-700"
+                            onClick={() => deleteUserData(currUser._id)}
+                          >
+                            Delete
+                          </button>
+                        </td>
                       </tr>
                     );
                   })}

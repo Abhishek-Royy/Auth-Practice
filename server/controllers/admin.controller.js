@@ -1,4 +1,5 @@
 const User = require("../models/user.model");
+const { user } = require("./auth.controller");
 
 const getAllUsers = async (req, res, next) => {
   try {
@@ -12,4 +13,15 @@ const getAllUsers = async (req, res, next) => {
   }
 };
 
-module.exports = getAllUsers;
+// DELETE FUNCTION
+const deleteUserbyId = async (req, res, next) => {
+  try {
+    const id = req.params.id;
+    await User.deleteOne({ _id: id });
+    return res.status(200).json({ msg: "User deleted successfully..!" });
+  } catch (error) {
+    next(error);
+  }
+};
+
+module.exports = { getAllUsers, deleteUserbyId };
