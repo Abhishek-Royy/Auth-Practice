@@ -94,11 +94,11 @@ function LoginPage() {
             <div className="sm:mx-auto sm:w-full sm:max-w-sm">
               <img
                 className="mx-auto h-40 w-auto"
-                src="https://www.pngall.com/wp-content/uploads/5/Profile-Male-PNG-Clipart.png"
+                src="https://static.vecteezy.com/system/resources/previews/013/441/088/original/code-symbol-illustration-png.png"
                 alt="Your Company"
               />
               <h2 className="mt-10 text-center text-3xl font-bold leading-9 tracking-tight text-white">
-                Login in to your Account
+                Login to your Account
               </h2>
             </div>
 

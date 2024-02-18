@@ -106,12 +106,12 @@ const RegistrationPage = () => {
             <div className="sm:mx-auto sm:w-full sm:max-w-sm">
               <img
                 className="mx-auto"
-                src="https://www.pngall.com/wp-content/uploads/5/User-Profile-PNG-Image.png"
+                src="https://static.vecteezy.com/system/resources/previews/013/441/088/original/code-symbol-illustration-png.png"
                 alt="Your Company"
-                width="200px"
+                width="120px"
               />
               <h2 className="mt-0 text-center text-3xl font-bold leading-9 tracking-tight text-white">
-                Register in to your Account
+                Signup to your Account
               </h2>
             </div>
 
